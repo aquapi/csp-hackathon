@@ -70,17 +70,17 @@ const signin = Page(
                   method: 'POST',
                   body: inputName.value + ':' + inputPwd.value,
                 });
-                if (res.ok) {
+                if (res.status === 200) {
                   toasts.signin('success', 'Sign in successfully! Redirecting...');
                   setTimeout(() => location.href = '/', 1500);
                 } else if (res.status >= 400 && res.status < 500) {
                   toasts.signin('error', 'Invalid username or password!');
                 } else {
-                  toasts.signin('error', 'Internal server error!');
+                  toasts.signin('error', 'Unknown error!');
                   console.error(res);
                 }
               } catch (e) {
-                toasts.signin('error', 'Internal server error!');
+                toasts.signin('error', 'Unknown error!');
                 console.error(e);
               }
             }
