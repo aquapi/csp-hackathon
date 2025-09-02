@@ -12,6 +12,7 @@
     "live-sse": "^0.0.3"
   },
   "scripts": {
-    "dev": "bun run --watch index.ts --smol"
+    "dev": "bun run --watch index.ts",
+    "start": "bun run index.ts --smol"
   }
 }
