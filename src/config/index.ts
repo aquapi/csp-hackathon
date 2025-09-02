@@ -37,9 +37,9 @@ export default defineConfig({
 
   // Format: hour:minute:second date/month/year
   timeLimit: {
-    start: '19:57:0 2/9/2025',
-    freeze: '20:10:0 2/9/2025',
-    end: '22:0:0 2/9/2025'
+    start: '0:0:0 3/9/2025',
+    freeze: '20:10:0 6/9/2025',
+    end: '22:0:0 7/9/2025'
   },
 
   // Problem list (read from './problems')

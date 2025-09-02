@@ -88,8 +88,7 @@ export const TimeRemaining = () => {
       prop.style('text-align: center; flex-direction: column; padding: 4rem; width: 100vw'),
 
       el.h1(prop.style('font-size: 1.5rem; font-weight: 700; margin-bottom: 1rem'),
-        'Time remaining: ' +
-        el.span(prop.id('timeRemainingNumber'), '')
+        el.span(prop.id('timeRemainingDisplay'), '')
       ) +
       el.progress(
         prop.id('timeRemainingProgress') +
@@ -122,13 +121,18 @@ export const TimeRemaining = () => {
           value += currentTime - prevTime;
           prevTime = currentTime;
 
+          if (value < 0) {
+            timeRemainingDisplay.textContent = 'Until start: ' + renderTime(Math.floor(-value));
+            return;
+          }
+
           if (${TOTAL_TIME} < value) {
-            timeRemainingNumber.textContent = '00:00:00';
+            timeRemainingDisplay.textContent = 'Time remaining: 00:00:00';
             return clearInterval(loopId);
           }
 
           timeRemainingProgress.value = Math.floor(value);
-          timeRemainingNumber.textContent = renderTime(Math.floor(${TOTAL_TIME} - value));
+          timeRemainingDisplay.textContent = 'Time remaining: ' + renderTime(Math.floor(${TOTAL_TIME} - value));
         };
         render();
       `)
