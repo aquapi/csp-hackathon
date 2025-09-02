@@ -29,8 +29,10 @@ export const verifyToken = layer.parse('username', (c) => {
   const header = c.req.headers.get('cookie');
   if (header !== null) {
     const token = /(?:$| )token=([^;]+)/.exec(header);
-    if (token !== null && hmac.verify(ALGORITHM, config.secret, token[1]))
-      return token[1];
+    if (token !== null) {
+      const value = hmac.verify(ALGORITHM, config.secret, token[1]);
+      if (value != null) return value;
+    }
   }
   return invalidTokenErr;
 });

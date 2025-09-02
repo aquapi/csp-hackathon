@@ -7,7 +7,7 @@ export const label = (prop: string, content: string) => `<label${prop}>${content
 export const input = (prop: string) => `<input${prop}>`;
 export const script = (prop: string, content: string) => `<script${prop}>${content}</script>`;
 export const link = (prop: string) => `<link${prop}>`;
-export const span = (prop: string, content: string) => `<span${prop}>${content}</span>`;
+export const span = (prop: string, content: string | number) => `<span${prop}>${content}</span>`;
 export const div = (prop: string, content: string) => `<div${prop}>${content}</div>`;
 export const ul = (prop: string, content: string) => `<ul${prop}>${content}</ul>`;
 export const li = (prop: string, content: string) => `<li${prop}>${content}</li>`;
@@ -15,5 +15,10 @@ export const a = (prop: string, content: string) => `<a${prop}>${content}</a>`;
 export const fieldset = (prop: string, content: string) => `<fieldset${prop}>${content}</fieldset>`;
 export const legend = (prop: string, content: string) => `<legend${prop}>${content}</legend>`;
 export const h1 = (prop: string, content: string) => `<h1${prop}>${content}</h1>`;
-export const button = (prop: string,content: string) => `<button${prop}>${content}</button>`
+export const details = (prop: string, content: string) => `<details${prop}>${content}</details>`;
+export const summary = (prop: string, content: string) => `<summary${prop}>${content}</summary>`;
+export const select = (prop: string, content: string) => `<select${prop}>${content}</select>`;
+export const option = (prop: string, content: string) => `<option${prop}>${content}</option>`;
+export const progress = (prop: string, content: string) => `<progress${prop}>${content}</progress>`;
+export const button = (prop: string, content: string) => `<button${prop}>${content}</button>`;
 export const br = '<br>';

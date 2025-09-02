@@ -9,6 +9,8 @@ const parseTime = (time: TimeString) => {
   return new Date(date[2], date[1] - 1, date[0], ...daytime).getTime();
 }
 
-export const startTime = parseTime(config.timeLimit.start);
-export const freezeTime = parseTime(config.timeLimit.freeze);
-export const endTime = parseTime(config.timeLimit.end);
+export const START_TIME = parseTime(config.timeLimit.start);
+export const FREEZE_TIME = parseTime(config.timeLimit.freeze);
+export const END_TIME = parseTime(config.timeLimit.end);
+export const TOTAL_TIME = END_TIME - START_TIME;
+export const timeElapsed = () => Math.min(Date.now() - START_TIME, TOTAL_TIME);

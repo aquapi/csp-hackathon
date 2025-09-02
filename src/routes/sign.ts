@@ -8,19 +8,19 @@ import { handle, router } from '@mapl/web';
 import { clearToken, isValid, signToken } from '../utils/user.ts';
 
 import { daisy, el, prop } from '@views';
-import { page } from '@layouts';
+import { Page, ThemeController } from '@layouts';
 import config from '@config';
 
-const signin = page(
+const signin = Page(
   el.title('Sign in'),
 
   daisy.nav(
     '',
     el.a(
-      prop.style('font-weight: bold') +
+      prop.style('font-weight: bold; margin-right: 2rem') +
       prop.href('/'),
       config.title
-    ),
+    ) + ThemeController,
     ''
   ) +
   // Toast for alerts (`toasts.signin`)

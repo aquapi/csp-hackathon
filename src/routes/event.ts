@@ -5,5 +5,5 @@ export const channel = sse.channel();
 
 const handler = sse.stream(channel);
 export default router([], [
-  handle.get('/', (c) => handler(c.req))
+  handle.get('/', (c) => handler(c.req), handle.raw)
 ]);
