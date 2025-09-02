@@ -1,4 +1,7 @@
-import { daisy } from './index.ts';
+import { daisy, el, prop } from '@views';
+import config from '@config';
+
+const THEME = 'dim';
 
 export const page = (
   head: string,
@@ -23,5 +26,30 @@ export const page = (
     <meta name='viewport' content='width=device-width, initial-scale=1.0'>
     ${daisy.load(5) + daisy.themes + head}
   </head>
-  <body style='width: 100vw'>${body}</body>
+  <body style='width: 100vw' data-theme='${THEME}'>${body}</body>
 </html>`;
+
+export const title = (name: string) => el.title(name + ' | ' + config.title);
+
+export const navbar = daisy.nav(
+  el.a(
+    prop.style('font-weight: bold') +
+    prop.href('/'),
+    config.title
+  ),
+
+  el.ul(prop.classes('menu menu-horizontal'),
+    el.li('',
+      el.a(prop.href('/submit'), 'Submit')
+    ) +
+    el.li('',
+      el.a(prop.href('/ranking'), 'Ranking')
+    )
+  ),
+
+  el.a(
+    prop.classes('btn btn-neutral') +
+    prop.href('/sign/out'),
+    'Sign out'
+  )
+)

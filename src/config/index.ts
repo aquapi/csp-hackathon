@@ -13,6 +13,7 @@ export const problem = (problem: Problem) => problem;
 
 // Parse config
 const defineConfig = (config: {
+  title: string,
   timeLimit: {
     start: TimeString,
     freeze: TimeString,
@@ -32,6 +33,8 @@ const loadProblemList = async (): Promise<Problem[]> =>
   );
 
 export default defineConfig({
+  title: 'Hackathon 2025',
+
   // Format: hour:minute:second date/month/year
   timeLimit: {
     start: '10:20:0 1/9/2025',

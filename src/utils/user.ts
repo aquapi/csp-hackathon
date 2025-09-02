@@ -24,13 +24,17 @@ export const signToken = (c: Context, name: string) => {
   ]);
 }
 
-export const unauthenticatedErr = err('unauthenticated');
-export const verifyToken = layer.parse('token', (c) =>  {
+export const invalidTokenErr = err(Symbol());
+export const verifyToken = layer.parse('username', (c) => {
   const header = c.req.headers.get('cookie');
-  if (header != null && header.startsWith('token')) {
-    const value = header.slice(5);
-    if (hmac.verify(ALGORITHM, config.secret, value))
-      return value;
+  if (header !== null) {
+    const token = /(?:$| )token=([^;]+)/.exec(header);
+    if (token !== null && hmac.verify(ALGORITHM, config.secret, token[1]))
+      return token[1];
   }
-  return unauthenticatedErr;
-})
+  return invalidTokenErr;
+});
+
+export const clearToken = (c: Context) => {
+  c.headers.push(['set-cookie', cookie.pair('token', '') + cookie.maxAge(1)]);
+}

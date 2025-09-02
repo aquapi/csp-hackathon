@@ -1,6 +1,10 @@
 import { router } from '@mapl/web';
-import signin from './signin.ts';
+import sign from './sign.ts';
+import pages from './pages.ts';
+import event from './event.ts';
 
 export default router([], [], {
-  '/signin': signin
+  '/sign': sign,
+  '/event': event,
+  '/': pages
 });

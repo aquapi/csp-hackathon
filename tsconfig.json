@@ -16,6 +16,12 @@
 
     // Best practices
     "strict": true,
-    "skipLibCheck": true
+    "skipLibCheck": true,
+
+    "paths": {
+      "@views": ["./src/views/index.ts"],
+      "@layouts": ["./src/views/layouts.ts"],
+      "@config": ["./src/config/index.ts"]
+    }
   }
 }

@@ -9,6 +9,9 @@ export const script = (prop: string, content: string) => `<script${prop}>${conte
 export const link = (prop: string) => `<link${prop}>`;
 export const span = (prop: string, content: string) => `<span${prop}>${content}</span>`;
 export const div = (prop: string, content: string) => `<div${prop}>${content}</div>`;
+export const ul = (prop: string, content: string) => `<ul${prop}>${content}</ul>`;
+export const li = (prop: string, content: string) => `<li${prop}>${content}</li>`;
+export const a = (prop: string, content: string) => `<a${prop}>${content}</a>`;
 export const fieldset = (prop: string, content: string) => `<fieldset${prop}>${content}</fieldset>`;
 export const legend = (prop: string, content: string) => `<legend${prop}>${content}</legend>`;
 export const h1 = (prop: string, content: string) => `<h1${prop}>${content}</h1>`;

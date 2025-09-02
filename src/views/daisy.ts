@@ -18,7 +18,8 @@ export const label = (content: string) => el.label(
 export const input = (props: string) => el.input(prop.classes('input') + prop.style('outline: none') + props);
 
 export const toast = (id: string, size: number) => el.div(
-  prop.classes('toast toast-center toast-top') + prop.id(id),
+  prop.classes('toast toast-center toast-bottom') +
+  prop.id(id),
   el.script('', `
     const removeChild = () => {
       const firstChild = ${id}.firstElementChild;
@@ -32,3 +33,12 @@ export const toast = (id: string, size: number) => el.div(
     }
   `)
 );
+
+export const nav = (start: string, center: string, end: string) =>
+  el.div(
+    prop.classes('navbar') +
+    prop.style('padding: 0 1rem 0 1rem; background: var(--color-base-200)'),
+    el.div(prop.classes('navbar-start'), start) +
+    el.div(prop.classes('navbar-center'), center) +
+    el.div(prop.classes('navbar-end'), end)
+  );
