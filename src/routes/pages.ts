@@ -1,8 +1,8 @@
 import { handle, router } from '@mapl/web';
 import { UserNav, Page, Title, TimeRemaining } from '@layouts';
-import { verifyToken } from '../utils/user.ts';
+import { invalidTokenErr, verifyToken } from '../utils/user.ts';
 
-export default router(
+const pages = router(
   [verifyToken],
   [
     handle.get(
@@ -17,3 +17,13 @@ export default router(
     )
   ]
 );
+
+export default handle.error(pages, (err, c) => {
+  if (err === invalidTokenErr) {
+    c.status = 302;
+    c.headers.push(['location', '/sign/in']);
+  } else {
+    c.status = 400;
+    console.log(err);
+  }
+});
