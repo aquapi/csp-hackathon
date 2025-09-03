@@ -1,15 +1,22 @@
 # csphackathon
+CSP Hackathon server templates.
 
-To install dependencies:
+## Installation
+Requirements: [bun](https://bun.sh).
+```sh
+# Install all dependencies
+bun i
 
-```bash
-bun install
+# Start the server
+bun start
 ```
 
-To run:
-
-```bash
-bun run index.ts
+## Project structure
 ```
-
-This project was created using `bun init` in bun v1.2.21. [Bun](https://bun.com) is a fast all-in-one JavaScript runtime.
+csphackathon/
+└── src/
+    ├── config/       # Contest configurations
+    │   └── problems/ # Problems and checkers
+    ├── views/        # HTML utilities
+    └── routes/       # Pages and API routes
+```

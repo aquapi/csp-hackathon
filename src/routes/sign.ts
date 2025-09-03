@@ -56,7 +56,6 @@ const signin = Page(
               prop.placeholder('Password')
             )
           ) +
-
           daisy.primaryButton('', 'Let me in!') +
           el.script('', `
             formSignin.onsubmit = async (e) => {
